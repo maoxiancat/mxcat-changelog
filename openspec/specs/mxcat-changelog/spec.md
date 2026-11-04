@@ -80,7 +80,7 @@ Agent MUST 仅在用户明确要求更新 CHANGELOG 时写入更新文档。代�
 版本节中的条目 MUST 使用以下两种形态之一：
 
 - shortcode：`- :shortcode: (scope) 描述`
-- cz 文字类型：`- type(scope): subject`
+- Conventional Commits 文字类型：`- type(scope): subject`
 
 同一批新增内容 MUST NOT 混用这两套形态。条目可以不写 scope；写了 scope 时 MUST 使用半角括号。节点之间 MUST 保留一个空行，标题和其内容之间 MUST 保留一个空行。
 
@@ -200,17 +200,17 @@ git for-each-ref --sort=v:refname --format '%(refname:short) %(creatordate:short
 
 ### Requirement: 条目类型选择
 
-条目类型 MUST 是 shortcode 或 cz 文字类型，两套 MUST NOT 混写。项目已经使用其中一种时，Agent MUST 沿用那一种。项目两种都没有使用时，Agent MUST 使用 shortcode。
+条目类型 MUST 是 shortcode 或 Conventional Commits 文字类型，两套 MUST NOT 混写。项目已经使用其中一种时，Agent MUST 沿用那一种。项目两种都没有使用时，Agent MUST 使用 shortcode。
 
-#### Scenario: 项目已使用 cz 文字类型
+#### Scenario: 项目已使用 Conventional Commits 文字类型
 
-- **WHEN** 目标 CHANGELOG 已经使用 `feat`、`fix` 这类 cz 文字类型
-- **THEN** 本次新增条目继续使用 cz 文字类型
+- **WHEN** 目标 CHANGELOG 已经使用 `feat`、`fix` 这类 Conventional Commits 文字类型
+- **THEN** 本次新增条目继续使用 Conventional Commits 文字类型
 - **AND** 不写入 shortcode
 
 #### Scenario: 项目没有既有类型
 
-- **WHEN** 目标 CHANGELOG 尚未使用 shortcode 或 cz 文字类型
+- **WHEN** 目标 CHANGELOG 尚未使用 shortcode 或 Conventional Commits 文字类型
 - **THEN** 本次新增条目使用 shortcode
 
 ### Requirement: shortcode 词表
@@ -247,9 +247,9 @@ git for-each-ref --sort=v:refname --format '%(refname:short) %(creatordate:short
 - **WHEN** 本次变更是新增功能，且当前使用 shortcode
 - **THEN** 条目类型为 `:sparkles:`
 
-### Requirement: cz 文字类型词表
+### Requirement: Conventional Commits 文字类型词表
 
-选用 cz 文字类型时，类型 MUST 取自下表：
+选用 Conventional Commits 文字类型时，类型 MUST 取自下表：
 
 | 类型 | 含义 | 使用场景 |
 | --- | --- | --- |
@@ -271,9 +271,9 @@ git for-each-ref --sort=v:refname --format '%(refname:short) %(creatordate:short
 | `wip` | 尚未完成 | 功能尚未完成时的阶段性提交 |
 | `types` | 类型变更 | 修改静态类型、接口或声明，不改变运行时逻辑 |
 
-#### Scenario: 缺陷修复使用 cz 类型
+#### Scenario: 缺陷修复使用 Conventional Commits 类型
 
-- **WHEN** 本次变更是缺陷修复，且当前使用 cz 文字类型
+- **WHEN** 本次变更是缺陷修复，且当前使用 Conventional Commits 文字类型
 - **THEN** 条目类型为 `fix`
 
 ### Requirement: scope
@@ -309,9 +309,9 @@ scope MUST 标识变化落在哪一块。它 MUST 是一段不含空白的全小
 - :wrench: (skills) 加入代码规范与提交技能
 ```
 
-#### Scenario: cz 条目示例
+#### Scenario: Conventional Commits 条目示例
 
-- **WHEN** 使用 cz 文字类型记录加载行为变更
+- **WHEN** 使用 Conventional Commits 文字类型记录加载行为变更
 - **THEN** 条目可以写成：
 
 ```md
