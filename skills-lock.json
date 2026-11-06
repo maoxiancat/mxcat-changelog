@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "mxcat-commit": {
+      "source": "maoxiancat/mxcat-commit",
+      "sourceType": "github",
+      "skillPath": "skills/mxcat-commit/SKILL.md",
+      "computedHash": "59d5bf0b7e6ed0b5b73c67042414ee90a9344c1f1c79651cc4f76e9d183761b0"
+    }
+  }
+}
