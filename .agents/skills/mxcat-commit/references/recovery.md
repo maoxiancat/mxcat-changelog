@@ -6,12 +6,12 @@
 
 - 需要撤回已提交但未 push 的 commit 时，使用 `git reset --soft` 进行撤回。不要 `git restore`。
 - 需要撤回已提交且已 push 的 commit 时，应和用户说明并等待用户确认再确定使用 `git revert` 还是 
-`git reset + force push`
+`git reset --soft + force push`
 - 需要撤回已提交且已 push 的 commit ，本地工作区还进行会与撤回产生冲突的更改时，应和用户说明并按照用户的要求进行操作
 
 ## hunk
 
-- 同一文件按预览标明的 hunk 提交时，补丁对不上该文件当前相对 `HEAD` 的 diff、路径是二进制、是 rename 或 copy 同时还要拆内容，或路径尚未进入 HEAD 时，停止后续提交并说明原因。
+- 同一文件按预览标明的 hunk 提交时，以本批开始时保留的 git diff HEAD 为准。该结果与预览记录不一致、路径是二进制、是 rename 或 copy 同时还要拆内容，或路径尚未进入 HEAD 时，停止后续提交并说明原因。
 
 ## 提交后与预览不一致
 
